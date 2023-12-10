@@ -1,12 +1,9 @@
-import csv
-import gspread
+class Expense:
+    def __init__(self, name, category, amount) -> None:
+        self.name = name
+        self.category = category
+        self.amount = amount
 
-file = "CallumAppsYearlySpending.csv"
+    def __repr__(self) -> str:
+        return f"<Expense: {self.name}, {self.category}, ${self.amount:.2f} >"
 
-with open(file, mode='r') as csv_file:
-    csv_reader = csv.reader(csv_file)
-    for row in csv_reader:
-        print(row)
-
-sa = gspread.service_account()
-sh = sa.open("Personal Finances")
